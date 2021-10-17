@@ -26,8 +26,12 @@ module.exports = {
       url: '/#about',
     },
     {
+      name: 'ประวัติการศึกษา',
+      url: '/#Education',
+    },
+    {
       url: '/#jobs',
-      name: 'ประสบการ์ณการทำาน',
+      name: 'ประสบการณ์การทำาน',
     },
     {
       name: 'ผลงาน',
