@@ -1,7 +1,7 @@
 ---
 date: '2'
 title: 'Robot Car Follower Person'
-cover: './Robot Person.jpg'
+cover: './SNC Robot Car.png'
 github: 'https://github.com/AnuwatThisuka/Robot-follower-person-Demo'
 tech:
   - PLC
