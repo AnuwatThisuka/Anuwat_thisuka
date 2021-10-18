@@ -155,7 +155,7 @@ const About = () => {
               <a href="#index">วัน เดือน ปีเกิด :</a> 10 พฤษภาคม 2541
             </p>
             <p>
-              <a href="#index">เบอร์โทรศัพท์ :</a> 096279451
+              <a href="#index">เบอร์โทรศัพท์ :</a> 0962793451
             </p>
             <p>
               <a href="#index">Email :</a> Engineering603@hotmail.com
