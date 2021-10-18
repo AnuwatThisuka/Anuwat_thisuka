@@ -8,6 +8,7 @@ import { navDelay } from '@utils';
 import { Layout } from '@components';
 import { usePrefersReducedMotion } from '@hooks';
 
+
 const StyledMainContainer = styled.main`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;

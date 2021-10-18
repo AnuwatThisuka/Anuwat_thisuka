@@ -6,7 +6,6 @@ import { Layout, Hero, About, Education, Jobs, Featured, Projects, Contact } fro
 const StyledMainContainer = styled.main`
   counter-reset: section;
 `;
-
 const IndexPage = ({ location }) => (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">

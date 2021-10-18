@@ -167,8 +167,8 @@ const StyledTabPanel = styled.div`
 const Education = () => {
   const data = useStaticQuery(graphql`
     query {
-      jobs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/education/" } }
+      Education: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/Education/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -176,6 +176,7 @@ const Education = () => {
             frontmatter {
               title
               company
+              GPA
               location
               range
               url
@@ -187,7 +188,7 @@ const Education = () => {
     }
   `);
 
-  const jobsData = data.jobs.edges;
+  const jobsData = data.Education.edges;
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -243,8 +244,8 @@ const Education = () => {
   };
 
   return (
-    <StyledEducationSection id="education" ref={revealContainer}>
-      <h2 className="numbered-heading">ประสบการณ์การศึกษา</h2>
+    <StyledEducationSection id="Education" ref={revealContainer}>
+      <h2 className="numbered-heading">ประวัติการศึกษา</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Jobs tabs" onKeyDown={e => onKeyDown(e)}>
@@ -269,6 +270,28 @@ const Education = () => {
           <StyledHighlight activeTabId={activeTabId} />
         </StyledTabList>
 
+        <StyledTabList role="tablist" aria-label="Jobs tabs" onKeyDown={e => onKeyDown(e)}>
+          {jobsData &&
+            jobsData.map(({ node }, i) => {
+              const { GPA } = node.frontmatter;
+              return (
+                <StyledTabButton
+                  key={i}
+                  isActive={activeTabId === i}
+                  onClick={() => setActiveTabId(i)}
+                  ref={el => (tabs.current[i] = el)}
+                  id={`tab-${i}`}
+                  role="tab"
+                  tabIndex={activeTabId === i ? '0' : '-1'}
+                  aria-selected={activeTabId === i ? true : false}
+                  aria-controls={`panel-${i}`}>
+                  <span>{GPA}</span>
+                </StyledTabButton>
+              );
+            })}
+          <StyledHighlight activeTabId={activeTabId} />
+        </StyledTabList>
+
         <StyledTabPanels>
           {jobsData &&
             jobsData.map(({ node }, i) => {
@@ -285,15 +308,14 @@ const Education = () => {
                     aria-hidden={activeTabId !== i}
                     hidden={activeTabId !== i}>
                     <h3>
-                      <span>{title}</span>
+                      <h5>{title}</h5>
                       <span className="company">
-                        &nbsp;@&nbsp;
                         <a href={url} className="inline-link">
                           {company}
                         </a>
                       </span>
                     </h3>
-
+                    
                     <p className="range">{range}</p>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />
