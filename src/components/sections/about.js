@@ -160,6 +160,8 @@ const About = () => {
             <p>
               <a href="#index">Email :</a> Engineering603@hotmail.com
             </p>
+            <p>
+              <a href="#index">ทักษะ :</a></p>
           </div>
 
           <ul className="skills-list">
