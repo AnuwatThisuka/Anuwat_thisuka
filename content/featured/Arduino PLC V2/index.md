@@ -1,5 +1,5 @@
 ---
-title: 'Arduino PLC V.2 Design For Industrial'
+title: 'Arduino PLC V.2'
 cover: './Arduino PLC v.2.png'
 github: 'https://github.com/AnuwatThisuka'
 tech:
